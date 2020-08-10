@@ -18,7 +18,7 @@ public class PaymentRouter {
     public RouterFunction<ServerResponse> routes(PaymentHandler paymentHandler) {
         return RouterFunctions
                 .route(GET("/payment").and(accept(MediaType.APPLICATION_JSON)), paymentHandler::getPayment)
-                .andRoute(GET("/payments").and(accept(MediaType.APPLICATION_JSON)), paymentHandler::getPayments);
+                .andRoute(GET("/payments").and(accept(MediaType.APPLICATION_STREAM_JSON)), paymentHandler::getPayments);
 
     }
 }
